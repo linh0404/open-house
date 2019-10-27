@@ -1,0 +1,90 @@
+body {
+    background: url("https://wallpaperaccess.com/full/159046.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+#logo {
+  color: #eee;
+  position: absolute;
+  float: right;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  letter-spacing: 12px;
+  font-weight: 700;
+}
+
+
+.nav-item {
+  list-style-type: none;
+}
+
+.navbar {
+  background:  #151515;
+  padding: 30px 60px;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.btn-link, .btn-link:hover, .btn-link:active, .btn-link:visited, .btn-link:focus {
+  text-decoration: none;
+  color: white;
+}
+
+.nav-link {
+  color: #eee;
+  font-weight: bold;
+  margin: 20px;
+}
+
+
+/*DROPDOWN MENU */
+.menu {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.dropdown-menu,
+.dropdown-item {
+  background: #151525;
+  color: #eee;
+}
+
+.menu {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #eee;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+/* Rotate first bar */
+.change .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+  transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+/* Fade out the second bar */
+.change .bar2 {
+  opacity: 0;
+} */
+
+/* Rotate last bar */
+.change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px);
+  transform: rotate(45deg) translate(-8px, -8px);
+}
+
