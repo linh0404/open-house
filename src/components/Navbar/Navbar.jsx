@@ -1,29 +1,22 @@
 import React from "react";
+import Burger from "./Burger";
+import { Route, Link } from "react-router-dom";
 
-function myFunction(x) {
-    x.classList.toggle("change");
-    }  
 
-function Navbar() {
+function Navbar(props) {
     return (
-        <nav class="navbar navbar-expand-lg">
-            <div class="menu" data-toggle="dropdown" onclick={() => myFunction(this)}>
-                <div class="bar1"></div>
-                <div class="bar2"></div>
-                <div class="bar3"></div>
-            </div>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="/portfolio">Portfolio</a>
-                <a class="dropdown-item" href="/calendar">Calendar</a>
-                <a class="dropdown-item" href="/correspondance">Correspondance</a>
-                <a class="dropdown-item" href="/reports">Reports</a>
-            </div>
+        <>
+        <Burger />
+        <nav className="navbar navbar-expand-lg">
             <h1 id="logo">OPEN HOUSE</h1>
-            <li class="nav-item" id="sign-in">
-                <button class="btn btn-link" id="signinbtn" data-toggle="modal" data-target="#signinmodal" href="#">Sign In</button>
-                <a href="/logout" class="btn btn-link" id="logoutbtn" href="#">Log Out</a>
-            </li>
+            <Link to="/login" className="btn btn-link text-secondary">
+                <span className="text-secondary">login</span>
+            </Link>
+            <Link to="/signup" className="btn btn-link">
+                <span className="text-secondary">sign up</span>
+            </Link>
         </nav>
+        </>
     );
 }
 

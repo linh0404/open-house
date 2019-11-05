@@ -1,5 +1,5 @@
 body {
-    background: url("https://wallpaperaccess.com/full/159046.jpg") no-repeat center center fixed;
+    background: url("https://wallpapercave.com/wp/wp2406803.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -17,14 +17,20 @@ body {
   font-weight: 700;
 }
 
+#page-wrap {
+  padding: 30px 0;
+  color: #eee;
+}
 
 .nav-item {
   list-style-type: none;
+  position: absolute;
+  left: 85%;
 }
 
 .navbar {
   background:  #151515;
-  padding: 30px 60px;
+  padding: 30px 60px 70px;
   justify-content: space-between;
   position: sticky;
   top: 0;
@@ -44,47 +50,147 @@ body {
 }
 
 
-/*DROPDOWN MENU */
-.menu {
+/* Position and sizing of burger button */
+.bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  left: 36px;
+  top: 36px;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: #eee;
+}
+
+/* Color/shape of burger icon bars on hover*/
+.bm-burger-bars-hover {
+  background: grey;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: #bdc3c7;
+}
+
+/*
+Sidebar wrapper styles
+Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+*/
+.bm-menu-wrap {
+  position: fixed;
+  height: 100%;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  background: #363946;
+  font-size: 1.15em;
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: #373a47;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  color: #b8b7ad;
+  padding: 0.8em;
+}
+
+/* Individual item */
+.bm-item {
   display: inline-block;
-  cursor: pointer;
 }
 
-.dropdown-menu,
-.dropdown-item {
-  background: #151525;
-  color: #eee;
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
 }
 
-.menu {
-  display: inline-block;
-  cursor: pointer;
+.a {
+  padding: 10px;
+  color: white;
 }
 
-.bar1,
-.bar2,
-.bar3 {
-  width: 35px;
-  height: 5px;
-  background-color: #eee;
-  margin: 6px 0;
-  transition: 0.4s;
+.login-container {
+  font-family: "Nunito", sans-serif;
+  height: 80vh;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  animation: fade-in 1s ease-in-out 0s;
 }
 
-/* Rotate first bar */
-.change .bar1 {
-  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
-  transform: rotate(-45deg) translate(-9px, 6px);
+.login-container {
+  font-family: "Nunito", sans-serif;
+  height: 80vh;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  animation: fade-in 1s ease-in-out 0s;
 }
 
-/* Fade out the second bar */
-.change .bar2 {
-  opacity: 0;
-} */
-
-/* Rotate last bar */
-.change .bar3 {
-  -webkit-transform: rotate(45deg) translate(-8px, -8px);
-  transform: rotate(45deg) translate(-8px, -8px);
+.login-container div:nth-child(1) {
+  background: rgba(21, 21, 21, 0.8);
+  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.25);
+  /* border: 1px solid black; */
+  padding: 10px 20px;
+  border-radius: 10px;
 }
 
+.login-container h2 {
+  text-align: center;
+  font-size: 30px;
+  color: white;
+}
+
+.login-container input {
+  background: rgba(255, 255, 255, 0.3);
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.login-input {
+  text-align: center;
+  border: none;
+  padding: 10px 100px;
+  border-radius: 25px;
+}
+
+.login-container input::placeholder {
+  color: white;
+}
+
+.button-group {
+  display: grid;
+  justify-content: center;
+}
+
+.login-container button {
+  margin: 10px;
+  color: white;
+  background: #33406B;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+}
+
+.login-container a {
+  text-align: center;
+  display: block;
+  text-decoration: none;
+  color: #d56637;
+}

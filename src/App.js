@@ -1,20 +1,70 @@
 import React, {Component} from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Login from "./components/Content/Signup";
+import Signup from "./components/Content/Signup";
 import './App.css';
 
 class App extends Component {
   constructor() {
-    super();
-    this.state = {    };
+    super()
+    this.state = {
+      loggedIn: false,
+      username: null
+    }
+
   }
 
   render() {
     return (
-      <div className="App">
-        <Navbar 
-          clickHandler={this.myFunction}
-        />
-      </div>
+      <Router>
+        <div>
+            <Switch>
+              <Route exact path="/">
+                <>
+                <Navbar />
+                </>
+              </Route>
+              <Route exact path="/signup">
+              <>
+                <Navbar />
+                <Signup />
+              </>
+              </Route>
+              <Route exact path="/login">
+                <>
+                <Navbar />
+                <Login />
+                </>
+              </Route>
+              <Route path="/portfolio">
+                <>
+                <Navbar />
+                </>
+              </Route>
+              <Route path="/calendar">
+                <>
+                <Navbar />
+                </>
+              </Route>
+              <Route path="/chat">
+                <>
+                <Navbar />
+                </>
+              </Route>
+              <Route path="/report">
+                <>
+                <Navbar />
+                </>
+              </Route>
+            </Switch>
+        </div>
+      </Router>
     );
   }
 }
