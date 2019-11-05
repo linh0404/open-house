@@ -7,6 +7,7 @@ body {
     font-family: 'Ubuntu', sans-serif;
 }
 
+/* NAVBAR */
 #logo {
   color: #eee;
   position: absolute;
@@ -123,25 +124,13 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 .login-container {
   font-family: "Nunito", sans-serif;
-  height: 80vh;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 25%);
+  width: 50vh;
   display: grid;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  animation: fade-in 1s ease-in-out 0s;
-}
-
-.login-container {
-  font-family: "Nunito", sans-serif;
-  height: 80vh;
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  animation: fade-in 1s ease-in-out 0s;
-}
-
-.login-container div:nth-child(1) {
   background: rgba(21, 21, 21, 0.8);
   box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.25);
   /* border: 1px solid black; */
@@ -149,21 +138,15 @@ Note: Beware of modifying this element as it can break the animations - you shou
   border-radius: 10px;
 }
 
-.login-container h2 {
-  text-align: center;
-  font-size: 30px;
-  color: white;
-}
-
 .login-container input {
   background: rgba(255, 255, 255, 0.3);
   display: block;
-  margin-top: 20px;
-  margin-bottom: 10px;
+  margin-top: 5px;
+  margin-bottom: 20px;
   color: white;
 }
 
-.login-input {
+.form-input {
   text-align: center;
   border: none;
   padding: 10px 100px;
@@ -174,11 +157,6 @@ Note: Beware of modifying this element as it can break the animations - you shou
   color: white;
 }
 
-.button-group {
-  display: grid;
-  justify-content: center;
-}
-
 .login-container button {
   margin: 10px;
   color: white;
@@ -186,11 +164,20 @@ Note: Beware of modifying this element as it can break the animations - you shou
   padding: 10px 20px;
   border: none;
   border-radius: 25px;
+  width: 150px;
+  float: center;
 }
 
 .login-container a {
   text-align: center;
   display: block;
   text-decoration: none;
-  color: #d56637;
+  color: white;
+}
+
+label,
+h3 {
+  color: white;
+  text-align: center;
+  font-weight: bold;
 }

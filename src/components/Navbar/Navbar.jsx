@@ -10,10 +10,10 @@ function Navbar(props) {
         <nav className="navbar navbar-expand-lg">
             <h1 id="logo">OPEN HOUSE</h1>
             <Link to="/login" className="btn btn-link text-secondary">
-                <span className="login">login</span>
+                <span className="login">Login</span>
             </Link>
             <Link to="/signup" className="btn btn-link">
-                <span className="signup">sign up</span>
+                <span className="signup">Sign Up</span>
             </Link>
         </nav>
         </>

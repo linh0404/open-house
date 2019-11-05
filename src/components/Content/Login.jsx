@@ -57,13 +57,13 @@ class Login extends Component {
         } else {
             return (
                 <div class="login-container">
-                    <h4>Login</h4>
-                    <form className="form-horizontal">
-                        <div className="form-group">
-                            <div className="col-1 col-ml-auto">
+                    <h3>Login</h3>
+                    <form>
+                        <div>
+                            <div>
                                 <label className="form-label" htmlFor="username">Username</label>
                             </div>
-                            <div className="col-3 col-mr-auto">
+                            <div>
                                 <input className="form-input"
                                     type="text"
                                     id="username"
@@ -74,13 +74,11 @@ class Login extends Component {
                                 />
                             </div>
                         </div>
-                        <div className="form-group">
-                            <div className="col-1 col-ml-auto">
+                        <div>
+                            <div>
                                 <label className="form-label" htmlFor="password">Password: </label>
-                            </div>
-                            <div className="col-3 col-mr-auto">
                                 <input className="form-input"
-                                    placeholder="password"
+                                    placeholder="Password"
                                     type="password"
                                     name="password"
                                     value={this.state.password}
@@ -88,13 +86,12 @@ class Login extends Component {
                                 />
                             </div>
                         </div>
-                        <div className="form-group ">
-                            <div className="col-7"></div>
-                            <button
-                                className="btn btn-primary col-1 col-mr-auto"
-
+                        <div>
+                             <button
                                 onClick={this.handleSubmit}
                                 type="submit">Login</button>
+                            <button
+                                type="submit"><a href="/">Cancel</a></button>
                         </div>
                     </form>
                 </div>
