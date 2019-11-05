@@ -12,7 +12,7 @@ body {
   color: #eee;
   position: absolute;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -60%);
   letter-spacing: 12px;
   font-weight: 700;
 }
@@ -62,7 +62,7 @@ body {
   width: 36px;
   height: 30px;
   left: 36px;
-  top: 20px;
+  top: 23px;
 }
 
 /* Color/shape of burger icon bars */
@@ -123,7 +123,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 }
 
 .login-container {
-  font-family: "Nunito", sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   position: absolute;
   left: 50%;
   transform: translate(-50%, 25%);
@@ -180,4 +180,12 @@ h3 {
   color: white;
   text-align: center;
   font-weight: bold;
+}
+
+.buttons {
+   display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
 }
