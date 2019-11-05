@@ -2,11 +2,10 @@ import React, {Component} from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Login from "./components/Content/Signup";
+import Login from "./components/Content/Login";
 import Signup from "./components/Content/Signup";
 import './App.css';
 
@@ -23,7 +22,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>
+        <div className="App">
             <Switch>
               <Route exact path="/">
                 <>

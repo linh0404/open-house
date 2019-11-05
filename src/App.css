@@ -10,7 +10,6 @@ body {
 #logo {
   color: #eee;
   position: absolute;
-  float: right;
   left: 50%;
   transform: translate(-50%, -50%);
   letter-spacing: 12px;
@@ -30,8 +29,9 @@ body {
 
 .navbar {
   background:  #151515;
-  padding: 30px 60px 70px;
-  justify-content: space-between;
+  padding: 20px;
+  display: flex;
+  justify-content: flex-end;
   position: sticky;
   top: 0;
   width: 100%;
@@ -49,6 +49,11 @@ body {
   margin: 20px;
 }
 
+.login {
+  padding: 10px;
+  color: white;
+}
+
 
 /* Position and sizing of burger button */
 .bm-burger-button {
@@ -56,7 +61,7 @@ body {
   width: 36px;
   height: 30px;
   left: 36px;
-  top: 36px;
+  top: 20px;
 }
 
 /* Color/shape of burger icon bars */
@@ -114,11 +119,6 @@ Note: Beware of modifying this element as it can break the animations - you shou
 /* Styling of overlay */
 .bm-overlay {
   background: rgba(0, 0, 0, 0.3);
-}
-
-.a {
-  padding: 10px;
-  color: white;
 }
 
 .login-container {
