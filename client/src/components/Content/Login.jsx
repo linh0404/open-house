@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 
-class Login extends Component {
+class LoginForm extends Component {
     constructor() {
         super()
         this.state = {
@@ -100,4 +100,4 @@ class Login extends Component {
     }
 }
 
-export default Login
+export default LoginForm;

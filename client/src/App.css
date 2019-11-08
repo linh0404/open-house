@@ -55,7 +55,7 @@ body {
   color: white;
 }
 
-
+/*BURGER MENU */
 /* Position and sizing of burger button */
 .bm-burger-button {
   position: fixed;
@@ -86,6 +86,25 @@ body {
   background: #bdc3c7;
 }
 
+#portfolio {
+  padding-top: 30px;
+}
+
+#contact {
+  position: absolute;
+  bottom: 60px;
+}
+
+.menu-item p {
+  color: white;
+  padding: 20px 0 0 18px;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.menu-item i {
+  padding: 0 12px;
+}
+
 /*
 Sidebar wrapper styles
 Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
@@ -97,8 +116,9 @@ Note: Beware of modifying this element as it can break the animations - you shou
 
 /* General sidebar styles */
 .bm-menu {
-  background: #363946;
-  font-size: 1.15em;
+  /* background: #020010; */
+  background: #151515;
+  font-size: 1.35em;
 }
 
 /* Morph shape necessary with bubble or elastic */
@@ -122,6 +142,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
   background: rgba(0, 0, 0, 0.3);
 }
 
+/*LOGIN*/
 .login-container {
   font-family: 'Ubuntu', sans-serif;
   position: absolute;
@@ -137,6 +158,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
   padding: 10px 20px;
   border-radius: 10px;
 }
+
 
 .login-container input {
   background: rgba(255, 255, 255, 0.3);
