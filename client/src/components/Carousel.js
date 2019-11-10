@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
+import './Carousel.css';
 
 class PRCarousel extends Component {
     
@@ -8,28 +9,25 @@ class PRCarousel extends Component {
         return (
             <Carousel>
                 <div>
-                    <img src="../../public/images/main.jpg" />
-                    <p className="legend">Legend 1</p>
+                    <img src="/images/main.jpg" />
                 </div>
                 <div>
-                    <img src="../../public/images/image2.jpg" />
-                    <p className="legend">Legend 2</p>
+                    <img src="/images/image2.jpg" />
                 </div>
                 <div>
-                    <img src="../../public/images/image3.jpg" />
-                    <p className="legend">Legend 3</p>
+                    <img src="/images/image3.jpg" />
                 </div>
                 <div>
-                    <img src="../../public/images/image4.jpg" />
-                    <p className="legend">Legend 3</p>
+                    <img src="/images/image4.jpg" />
                 </div>
                 <div>
-                    <img src="../../public/images/image5.jpg" />
-                    <p className="legend">Legend 3</p>
+                    <img src="/images/image5.jpg" />
                 </div>
                 <div>
-                    <img src="../../public/images/floorplan1.jpg" />
-                    <p className="legend">Legend 3</p>
+                    <img src="/images/image6.jpg" />
+                </div>
+                <div>
+                    <img src="/images/image8.jpg" />
                 </div>
             </Carousel>
         );

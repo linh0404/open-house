@@ -5,11 +5,12 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import Navbar from './components/Navbar'
-import Landing from './components/Landing'
-import Login from './components/Login'
-import Register from './components/Register'
-import Profile from './components/Profile'
+import Navbar from './components/Navbar';
+import Landing from './components/Landing';
+import Login from './components/Login';
+import Register from './components/Register';
+import Profile from './components/Profile';
+import Calendar from './components/Calendar';
 import './App.css';
 
 class App extends Component {
@@ -23,6 +24,7 @@ class App extends Component {
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/profile" component={Profile} />
+            <Route exact path="/calendar" component={Calendar}/>
           </div>
         </div>
       </Router>
