@@ -4,10 +4,10 @@ class Landing extends Component {
   render() {
     return (
       <div className="container">
-
+  
       </div>
     )
   }
 }
 
-export default Landing;
+export default Landing
