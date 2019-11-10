@@ -8,6 +8,7 @@ class Register extends Component {
       first_name: '',
       last_name: '',
       email: '',
+      // role: '',
       password: '',
       errors: {}
     }
@@ -25,6 +26,7 @@ class Register extends Component {
     const newUser = {
       first_name: this.state.first_name,
       last_name: this.state.last_name,
+      // role: this.state.role,
       email: this.state.email,
       password: this.state.password
     }
@@ -58,7 +60,7 @@ class Register extends Component {
                   type="text"
                   className="form-control"
                   name="last_name"
-                  placeholder="Enter your lastname name"
+                  placeholder="Enter your last name"
                   value={this.state.last_name}
                   onChange={this.onChange}
                 />
@@ -74,6 +76,17 @@ class Register extends Component {
                   onChange={this.onChange}
                 />
               </div>
+              {/* <div className="form-group">
+                <label htmlFor="role">Role</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  name="role"
+                  placeholder="Tenant or Landlord"
+                  value={this.state.role}
+                  onChange={this.onChange}
+                />
+              </div> */}
               <div className="form-group">
                 <label htmlFor="password">Password</label>
                 <input

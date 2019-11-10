@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Burger from "./Burger";
 import { Link, withRouter } from 'react-router-dom'
 
 class Landing extends Component {
@@ -40,23 +41,10 @@ class Landing extends Component {
     )
 
     return (
+      <div>
+        <Burger />
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark rounded">
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarsExample10"
-          aria-controls="navbarsExample10"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon" />
-        </button>
-
-        <div
-          className="collapse navbar-collapse justify-content-md-center"
-          id="navbarsExample10"
-        >
+          <h1 id="logo">OPEN HOUSE</h1>
           <ul className="navbar-nav">
             <li className="nav-item">
               <Link to="/" className="nav-link">
@@ -65,8 +53,8 @@ class Landing extends Component {
             </li>
           </ul>
           {localStorage.usertoken ? userLink : loginRegLink}
-        </div>
       </nav>
+      </div>
     )
   }
 }

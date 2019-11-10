@@ -1,28 +1,215 @@
-.App {
-  text-align: center;
+body {
+    background: url("https://wallpapercave.com/wp/wp2406803.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: 'Ubuntu', sans-serif;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+/* NAVBAR */
+#logo {
+  color: #eee;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  letter-spacing: 12px;
+  font-weight: 700;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
+#page-wrap {
+  padding: 30px 0;
+  color: #eee;
+}
+
+.nav-item {
+  list-style-type: none;
+  position: absolute;
+  left: 85%;
+}
+
+.navbar {
+  background:  #151515;
   padding: 20px;
+  display: flex;
+  justify-content: flex-end;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.btn-link, .btn-link:hover, .btn-link:active, .btn-link:visited, .btn-link:focus {
+  text-decoration: none;
   color: white;
 }
 
-.App-title {
-  font-size: 1.5em;
+.nav-link {
+  color: #eee;
+  font-weight: bold;
+  margin: 20px;
 }
 
-.App-intro {
-  font-size: large;
+.login,
+.signup {
+  padding: 10px;
+  color: white;
+  font-size: 1.35em;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+/*BURGER MENU */
+/* Position and sizing of burger button */
+.bm-burger-button {
+  position: fixed;
+  width: 36px;
+  height: 30px;
+  left: 36px;
+  top: 18px;
+}
+
+/* Color/shape of burger icon bars */
+.bm-burger-bars {
+  background: #eee;
+}
+
+/* Color/shape of burger icon bars on hover*/
+.bm-burger-bars-hover {
+  background: grey;
+}
+
+/* Position and sizing of clickable cross button */
+.bm-cross-button {
+  height: 24px;
+  width: 24px;
+}
+
+/* Color/shape of close button cross */
+.bm-cross {
+  background: #bdc3c7;
+}
+
+#portfolio {
+  padding-top: 30px;
+}
+
+#contact {
+  position: absolute;
+  bottom: 60px;
+}
+
+.menu-item p {
+  color: white;
+  padding: 20px 0 0 18px;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.menu-item i {
+  padding: 0 12px;
+}
+
+/*
+Sidebar wrapper styles
+Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
+*/
+.bm-menu-wrap {
+  position: fixed;
+  height: 100%;
+}
+
+/* General sidebar styles */
+.bm-menu {
+  /* background: #020010; */
+  background: #151515;
+  font-size: 1.35em;
+}
+
+/* Morph shape necessary with bubble or elastic */
+.bm-morph-shape {
+  fill: #373a47;
+}
+
+/* Wrapper for item list */
+.bm-item-list {
+  color: #b8b7ad;
+  padding: 0.8em;
+}
+
+/* Individual item */
+.bm-item {
+  display: inline-block;
+}
+
+/* Styling of overlay */
+.bm-overlay {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/*LOGIN*/
+.login-container {
+  font-family: 'Ubuntu', sans-serif;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 25%);
+  width: 50vh;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  background: rgba(21, 21, 21, 0.8);
+  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.25);
+  /* border: 1px solid black; */
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+
+.login-container input {
+  background: rgba(255, 255, 255, 0.3);
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.form-input {
+  text-align: center;
+  border: none;
+  padding: 10px 100px;
+  border-radius: 25px;
+}
+
+.login-container input::placeholder {
+  color: white;
+}
+
+.login-container button {
+  margin: 10px;
+  color: white;
+  background: #33406B;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  width: 150px;
+  float: center;
+}
+
+.login-container a {
+  text-align: center;
+  display: block;
+  text-decoration: none;
+  color: white;
+}
+
+label,
+h3 {
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+.buttons {
+   display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
 }
