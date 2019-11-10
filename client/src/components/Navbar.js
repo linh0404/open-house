@@ -43,7 +43,7 @@ class Landing extends Component {
     return (
       <div>
         <Burger />
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark rounded">
+        <nav className="navbar">
           <h1 id="logo">OPEN HOUSE</h1>
           <ul className="navbar-nav">
             <li className="nav-item">
