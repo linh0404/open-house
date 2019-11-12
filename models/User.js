@@ -18,9 +18,9 @@ module.exports = db.sequelize.define(
     email: {
       type: Sequelize.STRING
     },
-    // role: {
-    //   type: Sequelize.STRING
-    // },
+    role: {
+      type: Sequelize.STRING
+    },
     password: {
       type: Sequelize.STRING
     },

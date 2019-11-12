@@ -15,10 +15,12 @@ users.post('/register', (req, res) => {
     first_name: req.body.first_name,
     last_name: req.body.last_name,
     email: req.body.email,
-    // role: req.body.role,
+    role: req.body.role,
     password: req.body.password,
     created: today
   }
+
+  console.log({ userData })
 
   User.findOne({
     where: {
@@ -97,7 +99,7 @@ users.get('/t', (req,res) => {
     first_name: 't',
     last_name: 't',
     email: 'a@a.com',
-    // role: 't',
+    role: 't',
     password: 'd',
     created: today
   }

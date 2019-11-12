@@ -231,33 +231,41 @@ class Calendar extends Component {
         })
 
         return (
-            <div className="calendar-container" style={this.style}>
-                <table className="calendar">
-                    <thead>
-                        <tr className="calendar-header">
-                            <td colSpan="5" className="month">
-                                <this.MonthNav />
-                                {" "}
-                                <this.YearNav />
-                            </td>
-                            <td colSpan="2" className="nav-month">
-                                <i className="prev fa fa-fw fa-chevron-left"
-                                    onClick={(e) => { this.prevMonth() }}>
-                                </i>
-                                <i className="prev fa fa-fw fa-chevron-right"
-                                    onClick={(e) => { this.nextMonth() }}>
-                                </i>
-                            </td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            {weekdays}
-                        </tr>
-                        {trElems}
-                    </tbody>
-                </table>
-
+            <div class="reminders-container">
+                <div class="row">
+                    <div class="col-8">
+                        <div className="calendar-container" style={this.style}>
+                            <table className="calendar">
+                                <thead>
+                                    <tr className="calendar-header">
+                                        <td colSpan="5" className="month">
+                                            <this.MonthNav />
+                                            {" "}
+                                            <this.YearNav />
+                                        </td>
+                                        <td colSpan="2" className="nav-month">
+                                            <i className="prev fa fa-fw fa-chevron-left"
+                                                onClick={(e) => { this.prevMonth() }}>
+                                            </i>
+                                            <i className="prev fa fa-fw fa-chevron-right"
+                                                onClick={(e) => { this.nextMonth() }}>
+                                            </i>
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        {weekdays}
+                                    </tr>
+                                    {trElems}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-s4">
+                        <h1>REMINDERS</h1>
+                    </div>
+                </div>
             </div>
         );
     }

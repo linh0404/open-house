@@ -8,6 +8,7 @@ CREATE TABLE users
 	first_name varchar(50) NOT NULL,
     last_name varchar(50) NOT NULL,
     email varchar(50) NOT NULL,
+    role varchar(50) NOT NULL,
     password varchar(80) NOT NULL,
     createdAt timestamp NOT NULL,
 	PRIMARY KEY (id)
