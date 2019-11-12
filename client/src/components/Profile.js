@@ -10,6 +10,12 @@ class Profile extends Component {
       first_name: '',
       last_name: '',
       email: '',
+      role: '',
+      landlord_name: '',
+      landlord_contact: '',
+      tenant_name: '',
+      tenant_contact: '',
+      address: '',
       isShowing: false,
       errors: {}
     }
@@ -29,7 +35,8 @@ class Profile extends Component {
     this.setState({
       first_name: decoded.first_name,
       last_name: decoded.last_name,
-      email: decoded.email
+      email: decoded.email,
+      role: decoded.role
     })
   }
 
@@ -52,10 +59,14 @@ class Profile extends Component {
               <td>Email</td>
               <td>{this.state.email}</td>
             </tr>
+            <tr>
+              <td>Role</td>
+              <td>{this.state.role}</td>
+            </tr>
           </tbody>
         </table>
-
         <div>
+
           {this.state.isShowing ? <div onClick={this.closeModalHandler} className="back-drop"></div> : null}
 
           <button className="open-modal-btn" onClick={this.openModalHandler}>Add Property</button>
@@ -134,7 +145,6 @@ class Profile extends Component {
             </div>
           </Modal>
         </div>
-
 
 
       </div>
