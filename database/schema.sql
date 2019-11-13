@@ -14,4 +14,16 @@ CREATE TABLE users
 	PRIMARY KEY (id)
 );
 
+CREATE TABLE properties
+(	id int NOT NULL AUTO_INCREMENT,
+	address varchar(50) NOT NULL,
+    landlord_name varchar(50) NOT NULL,
+    landlord_contact varchar(50) NOT NULL,
+    tenant_name varchar(50) NOT NULL,
+    tenant_contact varchar(80) NOT NULL,
+    createdAt timestamp NOT NULL,
+	PRIMARY KEY (id)
+);
+
 SELECT * FROM open_house.users;
+SELECT * FROM open_house.properties;

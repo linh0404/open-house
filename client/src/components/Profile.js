@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import jwt_decode from 'jwt-decode';
 import PRCarousel from "./Carousel";
 import Modal from "./Modal";
+import { submit } from './UserFunctions';
 
 class Profile extends Component {
   constructor() {
@@ -19,6 +20,9 @@ class Profile extends Component {
       isShowing: false,
       errors: {}
     }
+
+    this.onChange = this.onChange.bind(this)
+    this.onSubmit = this.onSubmit.bind(this)
   }
   
   openModalHandler = () => {
@@ -40,6 +44,28 @@ class Profile extends Component {
     })
   }
 
+  onChange(e) {
+    this.setState({ [e.target.name]: e.target.value })
+  }
+
+  onSubmit(e) {
+    e.preventDefault()
+
+    const newProperty = {
+      landlord_name: this.state.landlord_name,
+      landlord_contact: this.state.landlord_contact,
+      tenant_name: this.state.tenant_name,
+      tenant_contact: this.state.tenant_contact,
+      address: this.state.address
+    }
+
+    console.log({newProperty})
+
+    submit(newProperty).then(res => {
+      this.props.history.push('/profile')
+    })
+  }
+
 
   render() {
     return (
@@ -48,25 +74,33 @@ class Profile extends Component {
         <table className="table portfolio-table">
           <tbody>
             <tr>
-              <td>First Name</td>
-              <td>{this.state.first_name}</td>
-            </tr>
-            <tr>
-              <td>Last Name</td>
-              <td>{this.state.last_name}</td>
-            </tr>
-            <tr>
-              <td>Email</td>
-              <td>{this.state.email}</td>
-            </tr>
-            <tr>
-              <td>Role</td>
-              <td>{this.state.role}</td>
+              <td>Logged in as:</td>
+              <td>{this.state.first_name} {this.state.last_name}</td>
             </tr>
           </tbody>
-        </table>
-        <div>
+          <br></br>
+          <br></br>
+          <br></br>
+          <tbody>
+            <tr>
+              <td>Property Address</td>
+              <td>Landlord's Name</td>
+              <td>Landlord's Email</td>
+              <td>Tenant's Name</td>
+              <td>Tenant's Email</td>
+            </tr>
+            <tr>
+              <td>{this.state.address}</td>
+              <td>{this.state.landlord_name}</td>
+              <td>{this.state.landlord_contact}</td>
+              <td>{this.state.tenant_name}</td>
+              <td>{this.state.tenant_contact}</td>
+            </tr>
 
+          </tbody>
+        </table>
+        
+        <div>
           {this.state.isShowing ? <div onClick={this.closeModalHandler} className="back-drop"></div> : null}
 
           <button className="open-modal-btn" onClick={this.openModalHandler}>Add Property</button>
@@ -122,7 +156,7 @@ class Profile extends Component {
                         name="tenant_contact"
                         pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}"
                         placeholder="Enter your Tenant's Contact Number"
-                        value={this.state.landlord_contact}
+                        value={this.state.tenant_contact}
                         onChange={this.onChange}
                       />
                     </div>
@@ -145,8 +179,6 @@ class Profile extends Component {
             </div>
           </Modal>
         </div>
-
-
       </div>
     )
   }

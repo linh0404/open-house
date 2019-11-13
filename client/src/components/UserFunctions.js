@@ -13,3 +13,10 @@ export const login = user => axios
     return response.data
   })
   .catch(console.error)
+
+export const submit = newProperty => axios
+  .post('properties/save', newProperty)
+  .then(response => {
+    console.log('New Property Added')
+    console.log(response)
+  })
