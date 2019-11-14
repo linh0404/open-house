@@ -3,6 +3,7 @@ import jwt_decode from 'jwt-decode';
 import PRCarousel from "./Carousel";
 import Modal from "./Modal";
 import { submit } from './UserFunctions';
+import axios from 'axios';
 
 class Profile extends Component {
   constructor() {
@@ -17,6 +18,7 @@ class Profile extends Component {
       tenant_name: '',
       tenant_contact: '',
       address: '',
+      data: [],
       isShowing: false,
       errors: {}
     }
@@ -42,7 +44,16 @@ class Profile extends Component {
       email: decoded.email,
       role: decoded.role
     })
-  }
+
+    // fetch data
+    axios.get(`http://localhost:5000/properties/display?role=${decoded.role}&email=${decoded.email}`).then( (data) => {
+      console.log("*******",data.data.data);
+      this.setState({
+        data: data.data.data
+        
+      })
+    })}
+  
 
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value })
@@ -89,13 +100,18 @@ class Profile extends Component {
               <td>Tenant's Name</td>
               <td>Tenant's Email</td>
             </tr>
-            <tr>
-              <td>{this.state.address}</td>
-              <td>{this.state.landlord_name}</td>
-              <td>{this.state.landlord_contact}</td>
-              <td>{this.state.tenant_name}</td>
-              <td>{this.state.tenant_contact}</td>
-            </tr>
+
+            {this.state.data.map((contact) => {
+              return (
+              <tr>
+                <td>{contact.address}</td>
+                <td>{contact.landlord_name}</td>
+                <td>{contact.landlord_contact}</td>
+                <td>{contact.tenant_name}</td>
+                <td>{contact.tenant_contact}</td>
+              </tr>)
+            })}
+            
 
           </tbody>
         </table>

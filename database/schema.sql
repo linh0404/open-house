@@ -14,6 +14,7 @@ CREATE TABLE users
 	PRIMARY KEY (id)
 );
 
+
 CREATE TABLE properties
 (	id int NOT NULL AUTO_INCREMENT,
 	address varchar(50) NOT NULL,

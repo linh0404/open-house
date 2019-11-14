@@ -5,6 +5,7 @@ td,
 tr {
     padding: 10px 8px 20px 30px;
     margin-top: 10px;
+    color: white;
 }
 
 .calendar {
@@ -107,4 +108,19 @@ tr {
 
 .label-month {
     cursor: pointer;
+}
+
+.reminders-container {
+    font-family: 'Ubuntu', sans-serif;
+    position: absolute;
+    left: 80%;
+    transform: translate(-50%, 25%);
+    width: 50vh;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    background: rgba(21, 21, 21, 0.8);
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.25);
+    padding: 10px 20px;
+    border-radius: 10px;
 }

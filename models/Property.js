@@ -1,7 +1,8 @@
 const Sequelize = require('sequelize')
 const db = require('../database/db.js')
+const User = require('./User')
 
-module.exports = db.sequelize.define(
+var Properties = db.sequelize.define(
     'properties',
     {
         id: {
@@ -33,3 +34,14 @@ module.exports = db.sequelize.define(
         timestamps: false
     }
 )
+
+Properties.belongsTo(User, {foreignKey: 'landlord_contact', targetKey: 'email', as: 'landlord'});
+Properties.belongsTo(User, {foreignKey: 'tenant_contact', targetKey: 'email',  as: 'tenant'});
+
+Properties.findAll ({ where: {},
+                        include: [{model: User, as: 'tenant', where: {email: "linh0404@hotmail.com"}}] , raw: true })
+                        .then ((data) => {
+                            console.log(data);
+                        })
+
+module.exports = Properties;

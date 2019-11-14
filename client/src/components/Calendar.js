@@ -1,9 +1,18 @@
 import React, { Component } from 'react'
 import moment from 'moment';
 import './Calendar.css';
+import Modal from "./Modal";
+import { submit } from './UserFunctions';
 
 class Calendar extends Component {
     state = {
+        reminder: '',
+        start_date: '',
+        end_date: '',
+        frequency: '',
+        next_date: '',
+        isShowing: false,
+        errors: {},
         dateContext: moment(),
         today: moment(),
         showMonthPopup: false,
@@ -171,6 +180,32 @@ class Calendar extends Component {
         this.props.onDayClick && this.props.onDayClick(e, day);
     }
 
+    onSubmit(e) {
+        e.preventDefault()
+
+        const newEvent = {
+            event: this.state.event,
+            start_date: this.state.start_date,
+            end_date: this.state.end_date,
+            next_date: this.state.next_date,
+            frequency: this.state.frequency
+        }
+
+        console.log({ newEvent })
+
+        submit(newEvent).then(res => {
+            this.props.history.push('/calendar')
+        });
+    }
+
+    openModalHandler = () => {
+        this.setState({ isShowing: true });
+    }
+
+    closeModalHandler = () => {
+        this.setState({ isShowing: false });
+    }
+
     render() {
         // Map the weekdays i.e Sun, Mon, Tue etc as <td>
         let weekdays = this.weekdaysShort.map((day) => {
@@ -228,10 +263,12 @@ class Calendar extends Component {
                     {d}
                 </tr>
             );
-        })
+        });
+
+        
 
         return (
-            <div class="reminders-container">
+            <div>
                 <div class="row">
                     <div class="col-8">
                         <div className="calendar-container" style={this.style}>
@@ -262,8 +299,108 @@ class Calendar extends Component {
                             </table>
                         </div>
                     </div>
-                    <div class="col-s4">
-                        <h1>REMINDERS</h1>
+                    <div class="col-s4 reminders-container">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>Event</td>
+                                    <td>Frequency</td>
+                                    <td>Next Due</td>
+                                </tr>
+
+                                {/* {this.state.data.map((contact) => {
+                                    return (
+                                        <tr>
+                                            <td>{contact.address}</td>
+                                            <td>{contact.landlord_name}</td>
+                                            <td>{contact.landlord_contact}</td>
+                                            <td>{contact.tenant_name}</td>
+                                            <td>{contact.tenant_contact}</td>
+                                        </tr>)
+                                })} */}
+
+                                <div>
+                                    {this.state.isShowing ? <div onClick={this.closeModalHandler} className="back-drop"></div> : null}
+
+                                    <button className="open-modal-btn" onClick={this.openModalHandler}>Add Property</button>
+
+                                    <Modal
+                                        className="modal"
+                                        show={this.state.isShowing}
+                                        close={this.closeModalHandler}>
+                                        <div className="login-container">
+                                            <div className="row">
+                                                <div>
+                                                    <form noValidate onSubmit={this.onSubmit}>
+                                                        <h1 className="h3 mb-3 font-weight-normal">Add Reminders Here</h1>
+                                                        <div className="form-group">
+                                                            <label htmlFor="name">Add Reminder</label>
+                                                            <input
+                                                                type="text"
+                                                                className="form-control"
+                                                                name="event"
+                                                                placeholder="Enter a new Event here"
+                                                                value={this.state.event}
+                                                                onChange={this.onChange}
+                                                            />
+                                                        </div>
+                                                        <div className="form-group">
+                                                            <label htmlFor="name">Landlord Contact Details</label>
+                                                            <input
+                                                                type="tel"
+                                                                className="form-control"
+                                                                name="landlord_contact"
+                                                                pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}"
+                                                                placeholder="Enter your Landlord's Contact Number"
+                                                                value={this.state.landlord_contact}
+                                                                onChange={this.onChange}
+                                                            />
+                                                        </div>
+                                                        <div className="form-group">
+                                                            <label htmlFor="name">Tenant Name</label>
+                                                            <input
+                                                                type="text"
+                                                                className="form-control"
+                                                                name="tenant_name"
+                                                                placeholder="Enter your Tenant's Name"
+                                                                value={this.state.tenant_name}
+                                                                onChange={this.onChange}
+                                                            />
+                                                        </div>
+                                                        <div className="form-group">
+                                                            <label htmlFor="name">Tenant's Contact Details</label>
+                                                            <input
+                                                                type="tel"
+                                                                className="form-control"
+                                                                name="tenant_contact"
+                                                                pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}"
+                                                                placeholder="Enter your Tenant's Contact Number"
+                                                                value={this.state.tenant_contact}
+                                                                onChange={this.onChange}
+                                                            />
+                                                        </div>
+                                                        <div className="form-group">
+                                                            <label htmlFor="name">Address</label>
+                                                            <input
+                                                                type="text"
+                                                                className="form-control"
+                                                                name="address"
+                                                                placeholder="Enter your Property's Address"
+                                                                value={this.state.address}
+                                                                onChange={this.onChange}
+                                                            />
+                                                        </div>
+                                                        <button type="submit" className="btn-continue">Submit</button>
+                                                        <button className="btn-cancel" onClick={this.closeModalHandler}>Close</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </Modal>
+                                </div>
+
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
