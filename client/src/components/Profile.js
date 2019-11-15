@@ -187,7 +187,7 @@ class Profile extends Component {
                         onChange={this.onChange}
                       />
                     </div>
-                    <button type="submit" className="btn-continue">Submit</button>
+                    <button type="submit" className="btn-continue" onClick={this.closeModalHandler}>Submit</button>
                     <button className="btn-cancel" onClick={this.closeModalHandler}>Close</button>
                   </form>
                 </div>

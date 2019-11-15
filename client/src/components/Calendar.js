@@ -188,7 +188,8 @@ class Calendar extends Component {
             start_date: this.state.start_date,
             end_date: this.state.end_date,
             next_date: this.state.next_date,
-            frequency: this.state.frequency
+            frequency: this.state.frequency,
+            address: this.state.address
         }
 
         console.log({ newEvent })
@@ -345,37 +346,34 @@ class Calendar extends Component {
                                                             />
                                                         </div>
                                                         <div className="form-group">
-                                                            <label htmlFor="name">Landlord Contact Details</label>
-                                                            <input
-                                                                type="tel"
-                                                                className="form-control"
-                                                                name="landlord_contact"
-                                                                pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}"
-                                                                placeholder="Enter your Landlord's Contact Number"
-                                                                value={this.state.landlord_contact}
-                                                                onChange={this.onChange}
-                                                            />
-                                                        </div>
-                                                        <div className="form-group">
-                                                            <label htmlFor="name">Tenant Name</label>
+                                                            <label htmlFor="name">Add Start Date</label>
                                                             <input
                                                                 type="text"
                                                                 className="form-control"
-                                                                name="tenant_name"
-                                                                placeholder="Enter your Tenant's Name"
-                                                                value={this.state.tenant_name}
+                                                                name="frequency"
+                                                                placeholder="Enter frequency here"
+                                                                value={this.state.frequency}
+                                                                onChange={this.onChange}                                                            />
+                                                        </div>
+                                                        <div className="form-group">
+                                                            <label htmlFor="name">Start Date</label>
+                                                            <input
+                                                                type="date"
+                                                                className="form-control"
+                                                                name="start_date"
+                                                                placeholder="Enter your start date here"
+                                                                value={this.state.start_date}
                                                                 onChange={this.onChange}
                                                             />
                                                         </div>
                                                         <div className="form-group">
-                                                            <label htmlFor="name">Tenant's Contact Details</label>
+                                                            <label htmlFor="name">End Date</label>
                                                             <input
-                                                                type="tel"
+                                                                type="date"
                                                                 className="form-control"
-                                                                name="tenant_contact"
-                                                                pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}"
-                                                                placeholder="Enter your Tenant's Contact Number"
-                                                                value={this.state.tenant_contact}
+                                                                name="end_date"
+                                                                placeholder="Enter your end date here"
+                                                                value={this.state.end_date}
                                                                 onChange={this.onChange}
                                                             />
                                                         </div>
@@ -390,7 +388,7 @@ class Calendar extends Component {
                                                                 onChange={this.onChange}
                                                             />
                                                         </div>
-                                                        <button type="submit" className="btn-continue">Submit</button>
+                                                        <button type="submit" className="btn-continue" onClick={this.closeModalHandler}>Submit</button>
                                                         <button className="btn-cancel" onClick={this.closeModalHandler}>Close</button>
                                                     </form>
                                                 </div>
