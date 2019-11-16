@@ -26,5 +26,18 @@ CREATE TABLE properties
 	PRIMARY KEY (id)
 );
 
+USE open_house;
+CREATE TABLE reminders (
+    id int NOT NULL AUTO_INCREMENT,
+    reminder varchar(50) NOT NULL,
+    frequency varchar(50) NOT NULL,
+    start_date DATETIME NOT NULL,
+    end_date DATETIME NOT NULL,
+    address varchar(50) NOT NULL,
+    createdAt timestamp NOT NULL, 
+    PRIMARY KEY (id)
+)
+
 SELECT * FROM open_house.users;
 SELECT * FROM open_house.properties;
+SELECT * FROM open_house.reminders;

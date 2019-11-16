@@ -45,3 +45,7 @@ Properties.findAll ({ where: {},
                         })
 
 module.exports = Properties;
+
+
+
+      

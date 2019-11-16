@@ -2,14 +2,14 @@ import React, { Component } from 'react'
 import moment from 'moment';
 import './Calendar.css';
 import Modal from "./Modal";
-import { submit } from './UserFunctions';
+import { addReminder } from './UserFunctions';
 
 class Calendar extends Component {
     state = {
         reminder: '',
         start_date: '',
         end_date: '',
-        frequency: '',
+        frequency: 'Monthly',
         next_date: '',
         isShowing: false,
         errors: {},
@@ -180,11 +180,17 @@ class Calendar extends Component {
         this.props.onDayClick && this.props.onDayClick(e, day);
     }
 
-    onSubmit(e) {
+    onChange = (e) => {
+        console.log('e.target.name', e.target.name)
+        console.log('e.target.value', e.target.value)
+        this.setState({ [e.target.name]: e.target.value })
+    }
+
+    onSubmit = (e) => {
         e.preventDefault()
 
-        const newEvent = {
-            event: this.state.event,
+        const newReminder = {
+            reminder: this.state.reminder,
             start_date: this.state.start_date,
             end_date: this.state.end_date,
             next_date: this.state.next_date,
@@ -192,9 +198,9 @@ class Calendar extends Component {
             address: this.state.address
         }
 
-        console.log({ newEvent })
+        console.log({ newReminder })
 
-        submit(newEvent).then(res => {
+        addReminder(newReminder).then(res => {
             this.props.history.push('/calendar')
         });
     }
@@ -339,21 +345,31 @@ class Calendar extends Component {
                                                             <input
                                                                 type="text"
                                                                 className="form-control"
-                                                                name="event"
+                                                                name="reminder"
                                                                 placeholder="Enter a new Event here"
-                                                                value={this.state.event}
+                                                                value={this.state.reminder}
                                                                 onChange={this.onChange}
                                                             />
                                                         </div>
                                                         <div className="form-group">
-                                                            <label htmlFor="name">Add Start Date</label>
-                                                            <input
+                                                            <label htmlFor="name">Add Frequency</label>
+                                                            <select className="form-control"
+                                                                    placeholder="Enter frequency here"
+                                                                    name="frequency"
+                                                                    value={this.state.frequency}
+                                                                    onChange={this.onChange}>
+                                                                <option value="Monthly">Monthly</option>
+                                                                <option value="Fortnightly">Fortnightly</option>
+                                                                <option value="Weekly">Weekly</option>
+                                                            </select>
+                                                            {/* <input
                                                                 type="text"
                                                                 className="form-control"
                                                                 name="frequency"
                                                                 placeholder="Enter frequency here"
                                                                 value={this.state.frequency}
-                                                                onChange={this.onChange}                                                            />
+                                                                onChange={this.onChange}                                                            
+                                                                /> */}
                                                         </div>
                                                         <div className="form-group">
                                                             <label htmlFor="name">Start Date</label>

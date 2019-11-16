@@ -20,3 +20,10 @@ export const submit = newProperty => axios
     console.log('New Property Added')
     console.log(response)
   })
+
+export const addReminder = newReminder => axios
+  .post('reminders/todo', newReminder)
+  .then(response => {
+    console.log('New Reminder Added')
+    console.log(response)
+  })

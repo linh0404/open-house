@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize')
 const db = require('../database/db.js')
+const Property = require('./Property')
 
 var Reminders = db.sequelize.define(
     'reminders',
@@ -16,10 +17,10 @@ var Reminders = db.sequelize.define(
             type: Sequelize.STRING
         },
         start_date: {
-            type: Sequelize.STRING
+            type: Sequelize.DATE
         },
         end_date: {
-            type: Sequelize.STRING
+            type: Sequelize.DATE
         },
         address: {
             type: Sequelize.STRING
@@ -34,4 +35,11 @@ var Reminders = db.sequelize.define(
     }
 )
 
+Reminders.belongsTo(Property, {foreignKey: 'address', targetKey: 'address', as: 'property'});
+
+Reminders.findAll ({ where: {}, 
+                        include: [{model: Property, as: 'property', where: {}}], raw: true })
+                        .then((data) => {
+                            console.log(data);
+                        })
 module.exports = Reminders;
