@@ -3,6 +3,8 @@ import moment from 'moment';
 import './Calendar.css';
 import Modal from "./Modal";
 import { addReminder } from './UserFunctions';
+import axios from 'axios';
+import jwt_decode from 'jwt-decode';
 
 class Calendar extends Component {
     state = {
@@ -17,7 +19,8 @@ class Calendar extends Component {
         today: moment(),
         showMonthPopup: false,
         showYearPopup: false,
-        selectedDay: null
+        selectedDay: null,
+        data: []
     }
 
     constructor(props) {
@@ -213,6 +216,20 @@ class Calendar extends Component {
         this.setState({ isShowing: false });
     }
 
+    componentDidMount() {
+        const token = localStorage.usertoken
+        const decoded = jwt_decode(token)
+        this.setState({ 
+            email: decoded.email,
+            role: decoded.role
+        })
+
+        axios.get(`http://localhost:5000/reminders/reminderList?role=${decoded.role}&email=${decoded.email}`).then((res) => {
+            console.log(res.data.data);
+            this.setState({data: res.data.data})
+        })
+    }
+
     render() {
         // Map the weekdays i.e Sun, Mon, Tue etc as <td>
         let weekdays = this.weekdaysShort.map((day) => {
@@ -310,21 +327,19 @@ class Calendar extends Component {
                         <table>
                             <tbody>
                                 <tr>
-                                    <td>Event</td>
+                                    <td>Reminder</td>
                                     <td>Frequency</td>
                                     <td>Next Due</td>
                                 </tr>
 
-                                {/* {this.state.data.map((contact) => {
+                                {this.state.data.map((remind) => {
                                     return (
                                         <tr>
-                                            <td>{contact.address}</td>
-                                            <td>{contact.landlord_name}</td>
-                                            <td>{contact.landlord_contact}</td>
-                                            <td>{contact.tenant_name}</td>
-                                            <td>{contact.tenant_contact}</td>
+                                            <td>{remind.reminder}</td>
+                                            <td>{remind.frequency}</td>
+                                            <td>{remind.start_date}</td>
                                         </tr>)
-                                })} */}
+                                })}
 
                                 <div>
                                     {this.state.isShowing ? <div onClick={this.closeModalHandler} className="back-drop"></div> : null}
