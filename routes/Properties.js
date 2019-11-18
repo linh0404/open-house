@@ -37,7 +37,7 @@ route.get('/display', (req, res) => {
     else {
         Property.findAll({ where: { landlord_contact: req.query.email } }).then(response => {
             console.log(response)
-            res.json({data:response})
+        res.json({data:response})
         
         })
     }

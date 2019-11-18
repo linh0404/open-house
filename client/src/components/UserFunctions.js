@@ -27,3 +27,10 @@ export const addReminder = newReminder => axios
     console.log('New Reminder Added')
     console.log(response)
   })
+
+export const send = newMessage => axios
+  .post('chat/message', newMessage)
+  .then(response => {
+    console.log('New Message Added')
+    console.log(response)
+  })

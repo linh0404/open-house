@@ -10,7 +10,7 @@ class Burger extends Component {
     render() {
         return (
             <Menu>
-                <a id="portfolio" className="menu-item" href="/portfolio"><p><i class="fas fa-book"></i>Portfolio</p></a>
+                <a id="portfolio" className="menu-item" href="/profile"><p><i class="fas fa-book"></i>Portfolio</p></a>
                 <a id="calendar" className="menu-item" href="/calendar"><p><i class="fas fa-calendar-alt"></i>Calendar</p></a>
                 <a id="chat" className="menu-item" href="/chat"><p><i class="fas fa-comment-alt"></i>Chat</p></a>
                 <a id="reports" className="menu-item" href="/reports"><p><i class="fas fa-chart-line"></i>Reports</p></a>

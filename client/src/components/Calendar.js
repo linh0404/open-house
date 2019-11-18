@@ -5,6 +5,7 @@ import Modal from "./Modal";
 import { addReminder } from './UserFunctions';
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
+import Moment from 'react-moment';
 
 class Calendar extends Component {
     state = {
@@ -344,7 +345,7 @@ class Calendar extends Component {
                                 <div>
                                     {this.state.isShowing ? <div onClick={this.closeModalHandler} className="back-drop"></div> : null}
 
-                                    <button className="open-modal-btn" onClick={this.openModalHandler}>Add Property</button>
+                                    <button className="open-modal-btn" onClick={this.openModalHandler}>Add Reminder</button>
 
                                     <Modal
                                         className="modal"
@@ -427,7 +428,6 @@ class Calendar extends Component {
                                         </div>
                                     </Modal>
                                 </div>
-
                             </tbody>
                         </table>
                     </div>
