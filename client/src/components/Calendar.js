@@ -205,7 +205,8 @@ class Calendar extends Component {
         console.log({ newReminder })
 
         addReminder(newReminder).then(res => {
-            this.props.history.push('/calendar')
+            this.props.history.push('/calendar');
+            this.fetchReminders();
         });
     }
 
@@ -229,6 +230,21 @@ class Calendar extends Component {
             console.log(res.data.data);
             this.setState({data: res.data.data})
         })
+
+        this.fetchReminders()
+    }
+
+    fetchReminders() {
+         const token = localStorage.usertoken;
+         const decoded = jwt_decode(token);
+             axios
+               .get(
+                 `http://localhost:5000/reminders/reminderList?role=${decoded.role}&email=${decoded.email}`
+               )
+               .then(res => {
+                 console.log(res.data.data);
+                 this.setState({ data: res.data.data });
+               });
     }
 
     render() {

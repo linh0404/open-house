@@ -37,6 +37,7 @@ CREATE TABLE reminders (
     PRIMARY KEY (id)
 );
 
+USE open_house;
 CREATE TABLE chats (
     id int NOT NULL AUTO_INCREMENT,
     sender varchar(50) NOT NULL,

@@ -51,7 +51,24 @@ class Profile extends Component {
         data: data.data.data
         
       })
-    })}
+    })
+
+    this.fetchPortfolio()
+  }
+
+    fetchPortfolio() {
+         const token = localStorage.usertoken;
+         const decoded = jwt_decode(token);
+             axios
+               .get(
+                 `http://localhost:5000/properties/display?role=${decoded.role}&email=${decoded.email}`
+               )
+               .then(data => {
+                 this.setState({
+                   data: data.data.data
+                 });
+               });
+    }
   
 
   onChange(e) {
@@ -72,8 +89,10 @@ class Profile extends Component {
     console.log({newProperty})
 
     submit(newProperty).then(res => {
-      this.props.history.push('/profile')
-    })
+      this.props.history.push('/profile');
+      this.fetchPortfolio();
+    });
+
   }
 
 
