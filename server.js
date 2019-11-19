@@ -1,5 +1,6 @@
 var express = require('express')
 var cors = require('cors')
+var db = require("./db");
 var bodyParser = require('body-parser')
 var app = express()
 var port = process.env.PORT || 5000;
@@ -29,7 +30,8 @@ if (process.env.NODE_ENV === "production") {
   })
 }
 
-sequelize.sync().then(() => {
+//sync in the event database hasnt been created
+db.sequelize.sync().then(() => {
   app.listen(port, function() {
     console.log('Server is running on port: ' + port)
   });
