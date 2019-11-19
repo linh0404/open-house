@@ -37,7 +37,7 @@ CREATE TABLE reminders (
     PRIMARY KEY (id)
 );
 
-CREATE TABLE chat (
+CREATE TABLE chats (
     id int NOT NULL AUTO_INCREMENT,
     sender varchar(50) NOT NULL,
     receiver varchar(50) NOT NULL,
@@ -49,4 +49,4 @@ CREATE TABLE chat (
 SELECT * FROM open_house.users;
 SELECT * FROM open_house.properties;
 SELECT * FROM open_house.reminders;
-SELECT * FROM open_house.chat;
+SELECT * FROM open_house.chats;

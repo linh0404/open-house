@@ -2,6 +2,7 @@ const express = require('express');
 const route = express.Router();
 const cors = require('cors');
 const Chat = require('../models/Chat');
+const Sequelize = require("sequelize");
 
 
 route.use(cors())
@@ -31,20 +32,11 @@ route.post('/message', (req, res) => {
 })
 
 route.get('/history', (req, res) => {
-
-    console.log('*******', req.query)
-    if (req.query.email === req.body.sender) {
-        Chat.findAll({ where: { sender: req.query.email }}).then(response => {
-            console.log(response)
-        res.json({data:response})
-        })
-    }
-    else {
-        Chat.findAll({ where: { receiver: req.query.email}}).then(response => {
-            console.log(response)
-        res.json({data:response})
-        })       
-    }
+console.log("email" + req.query.email)
+    Chat.findAll({ where: { [Sequelize.Op.or]: [{receiver: req.query.email}, {sender: req.query.email}]}}).then(response => {
+    res.json({data:response})
+    })       
+    
 })
 
 module.exports = route

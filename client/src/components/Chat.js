@@ -21,8 +21,8 @@ class Chat extends Component {
     e.preventDefault();
 
     const newMessage = {
-      sender: "sender",
-      receiver: "receiver",
+      sender: this.state.sender,
+      receiver: this.state.receiver,
       message: this.state.message
     };
 
@@ -30,23 +30,59 @@ class Chat extends Component {
 
     send(newMessage).then(res => {
       this.props.history.push("/chat");
+      this.fetchMessages();
     });
+
+    this.setState  ({ message: ""})
+
   };
 
   componentDidMount() {
     const token = localStorage.usertoken;
     const decoded = jwt_decode(token);
 
-    // fetch data
+    console.log(decoded.email);
+
+    this.setState ({sender: decoded.email})
+
+
     axios
       .get(
         `http://localhost:5000/properties/display?role=${decoded.role}&email=${decoded.email}`
       )
-      .then(data => {
-        this.setState({
-          data: data.data.data
-        });
+      .then(response => {
+        if (response.data.data[0].landlord_contact === decoded.email) {
+          this.setState ({ receiver: response.data.data[0].tenant_contact })
+        } else {
+          this.setState ({ receiver: response.data.data[0].landlord_contact })
+        }
       });
+
+      axios
+        .get(
+          `http://localhost:5000/chat/history?role=${decoded.role}&email=${decoded.email}`
+        )
+        .then(res => {
+          console.log(res.data.data);
+          this.setState({ data: res.data.data });
+        });
+
+        this.fetchMessages()
+        
+  }
+
+  fetchMessages() {
+     const token = localStorage.usertoken;
+     const decoded = jwt_decode(token);
+          axios
+            .get(
+              `http://localhost:5000/chat/history?role=${decoded.role}&email=${decoded.email}`
+            )
+            .then(res => {
+              console.log(res.data.data);
+              this.setState({ data: res.data.data });
+            });
+
   }
 
   render() {
@@ -58,8 +94,15 @@ class Chat extends Component {
             <tr>
               <td>Sender</td>
               <td>Message</td>
-              {/* INSERT TABLE DATA HERE */}
             </tr>
+            {this.state.data.map(messages => {
+              return (
+                <tr>
+                  <td>{messages.sender}</td>
+                  <td>{messages.message}</td>
+                </tr>
+              );
+            })}
           </tbody>
         </div>
         <div className="message-container">

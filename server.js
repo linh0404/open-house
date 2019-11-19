@@ -20,7 +20,7 @@ var Chats = require('./routes/Chats')
 app.use('/users', Users)
 app.use('/properties', Properties)
 app.use('/reminders', Reminders)
-app.use('/chats', Chats)
+app.use('/chat', Chats)
 
 
 app.listen(port, function() {
