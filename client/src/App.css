@@ -301,9 +301,9 @@ label,
 
 .message-container {
   font-family: 'Ubuntu', sans-serif;
-  position: fixed;
+  position: relative;
   left: 50%;
-  transform: translate(-50%, 475%);
+  transform: translate(-50%, 175%);
   width: 100vh;
   display: grid;
   justify-content: left;

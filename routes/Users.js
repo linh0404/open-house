@@ -20,8 +20,6 @@ route.post('/register', (req, res) => {
     created: today
   }
 
-  console.log({ userData })
-
   User.findOne({
     where: {
       email: req.body.email
@@ -29,7 +27,6 @@ route.post('/register', (req, res) => {
   })
     //TODO bcrypt
     .then(user => {
-      console.log('Register Triggered '+ user)
       if (!user) {
         bcrypt.hash(req.body.password, 10, (err, hash) => {
           userData.password = hash
@@ -103,7 +100,6 @@ route.get('/t', (req,res) => {
     password: 'd',
     created: today
   }
-  console.log('testing');
   User.create(userData)
     .then(user => {
       res.json({ status: user.email + 'Registered!' })

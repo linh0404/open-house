@@ -42,4 +42,5 @@ Reminders.findAll ({ where: {},
                         .then((data) => {
                             console.log(data);
                         })
+                        
 module.exports = Reminders;

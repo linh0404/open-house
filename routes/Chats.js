@@ -4,16 +4,18 @@ const cors = require('cors');
 const Chat = require('../models/Chat');
 
 
-route.user(cors())
+route.use(cors())
 
-route.post('/sent', (req, res) => {
+route.post('/message', (req, res) => {
     console.log("G'day");
-    const today = new Date()
+    console.log(req.body);
+    const today = new Date().getTime();
     const newMessage = {
         sender: req.body.sender,
         receiver: req.body.receiver,
         message: req.body.message,
         created: today
+        //how to get the loggedin email here
     }
 
     console.log({ newMessage })
@@ -44,3 +46,5 @@ route.get('/history', (req, res) => {
         })       
     }
 })
+
+module.exports = route

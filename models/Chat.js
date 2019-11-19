@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize')
-const db = require('../databse/db.js')
+const db = require('../database/db.js')
 const User = require('./User')
 
 var Chats = db.sequelize.define(
@@ -29,15 +29,16 @@ var Chats = db.sequelize.define(
     }
 )
 
-Chats.belongsTo(User, {foreignKey: 'landlord_contact', targetKey: 'sender', as: 'landlord'});
-Chats.belongsTo(User, {foreignKey: 'tenant_contact', targetKey: 'sender', as: 'tenant'});
-Chats.belongsTo(User, { foreignKey: 'landlord_contact', targetKey: 'receiver', as: 'landlord' });
-Chats.belongsTo(User, { foreignKey: 'tenant_contact', targetKey: 'receiver', as: 'tenant' });
 
-Chats.findAll ({ where: {}, 
-                    include: [{model: User, as: 'tenant', where:{} }], raw: true })
-                    .then((data) => {
-                        console.log(data);
-                    })
+// Chats.belongsTo(User, { foreignKey: 'sender', targetKey: 'landlord_contact', as: 'landlord'});
+// Chats.belongsTo(User, { foreignKey: 'sender', targetKey: 'tenant_contact', as: 'tenant'});
+// Chats.belongsTo(User, { foreignKey: 'receiver', targetKey: 'landlord_contact', as: 'landlord'});
+// Chats.belongsTo(User, { foreignKey: 'receiver', targetKey: 'tenant_contact', as: 'tenant'});
+
+// Chats.findAll ({ where: {}, 
+//                     include: [{model: User, as: 'tenant', where:{} }], raw: true })
+//                     .then((data) => {
+//                         console.log(data);
+//                     })
 
 module.exports = Chats;

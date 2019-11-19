@@ -6,7 +6,6 @@ const Property = require('../models/Property');
 route.use(cors())
 
 route.post('/save', (req, res) => {
-    console.log("Hello");
     const {landlord_name, landlord_contact, tenant_name, tenant_contact, address} = req.body;
     const propertyData = {
         landlord_name, landlord_contact, tenant_name, tenant_contact, address,
@@ -14,7 +13,6 @@ route.post('/save', (req, res) => {
 
     Property.create(propertyData)
         .then(property => {
-            console.log(property);
             res.json({msg: "property saved"})
         })
         .catch(err => {
@@ -26,17 +24,14 @@ route.post('/save', (req, res) => {
 // get properties 
 route.get('/display', (req, res) => {
     
-    console.log('*********', req.query)
     if (req.query.role === "Tenant") {
 
         Property.findAll({ where: { tenant_contact: req.query.email } }).then(response => {
-            console.log(response)
         res.json({data:response})
     })
 }
     else {
         Property.findAll({ where: { landlord_contact: req.query.email } }).then(response => {
-            console.log(response)
         res.json({data:response})
         
         })

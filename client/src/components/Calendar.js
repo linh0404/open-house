@@ -5,7 +5,6 @@ import Modal from "./Modal";
 import { addReminder } from './UserFunctions';
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
-import Moment from 'react-moment';
 
 class Calendar extends Component {
     state = {
@@ -30,6 +29,7 @@ class Calendar extends Component {
         this.style = props.style || {};
         this.style.width = this.width; // add this
     }
+
 
 
     weekdays = moment.weekdays(); //["Sunday", "Monday", "Tuesday", "Wednessday", "Thursday", "Friday", "Saturday"]
@@ -290,7 +290,17 @@ class Calendar extends Component {
             );
         });
 
-        
+        // const date = moment();
+        // const firstTimeConverted = moment(firstTime, "HH:mma");
+        // const diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+        // console.log("diffTime: " + diffTime)
+        // const tRemainder = diffTime % parseInt(sv.frequency, 10);
+        // console.log("tRemainder: " + tRemainder)
+        // const tMinutesTillTrain = parseInt(sv.frequency, 10) - tRemainder;
+        // console.log("tMinutesTillTrain: " + tMinutesTillTrain)
+        // const nextTrain = moment().add(tMinutesTillTrain, "minutes");
+        // console.log("nextTrain: " + nextTrain)
+
 
         return (
             <div>
@@ -374,9 +384,9 @@ class Calendar extends Component {
                                                                     name="frequency"
                                                                     value={this.state.frequency}
                                                                     onChange={this.onChange}>
-                                                                <option value="Monthly">Monthly</option>
-                                                                <option value="Fortnightly">Fortnightly</option>
-                                                                <option value="Weekly">Weekly</option>
+                                                                <option value="30">Monthly</option>
+                                                                <option value="14">Fortnightly</option>
+                                                                <option value="7">Weekly</option>
                                                             </select>
                                                             {/* <input
                                                                 type="text"

@@ -47,7 +47,6 @@ class Profile extends Component {
 
     // fetch data
     axios.get(`http://localhost:5000/properties/display?role=${decoded.role}&email=${decoded.email}`).then( (data) => {
-      console.log("*******",data.data.data);
       this.setState({
         data: data.data.data
         
@@ -78,7 +77,9 @@ class Profile extends Component {
   }
 
 
+
   render() {
+    console.log(this.state.data[0] ? this.state.data[0].tenant_contact : "not mounted yet")
     return (
       <div className="portfolio-container">
         <PRCarousel />
@@ -89,9 +90,7 @@ class Profile extends Component {
               <td>{this.state.first_name} {this.state.last_name}</td>
             </tr>
           </tbody>
-          <br></br>
-          <br></br>
-          <br></br>
+
           <tbody>
             <tr>
               <td>Property Address</td>
@@ -101,9 +100,9 @@ class Profile extends Component {
               <td>Tenant's Email</td>
             </tr>
 
-            {this.state.data.map((contact) => {
+            {this.state.data.map((contact, i) => {
               return (
-              <tr>
+              <tr key={i}>
                 <td>{contact.address}</td>
                 <td>{contact.landlord_name}</td>
                 <td>{contact.landlord_contact}</td>
