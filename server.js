@@ -29,7 +29,8 @@ if (process.env.NODE_ENV === "production") {
   })
 }
 
-
-app.listen(port, function() {
-  console.log('Server is running on port: ' + port)
-})
+sequelize.sync().then(() => {
+  app.listen(port, function() {
+    console.log('Server is running on port: ' + port)
+  });
+});
