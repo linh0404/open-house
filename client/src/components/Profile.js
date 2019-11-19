@@ -98,7 +98,6 @@ class Profile extends Component {
 
 
   render() {
-    console.log(this.state.data[0] ? this.state.data[0].tenant_contact : "not mounted yet")
     return (
       <div className="portfolio-container">
         <PRCarousel />
@@ -119,9 +118,9 @@ class Profile extends Component {
               <td>Tenant's Email</td>
             </tr>
 
-            {this.state.data.map((contact, i) => {
+            {this.state.data.map((contact) => {
               return (
-              <tr key={i}>
+              <tr>
                 <td>{contact.address}</td>
                 <td>{contact.landlord_name}</td>
                 <td>{contact.landlord_contact}</td>
