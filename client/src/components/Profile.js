@@ -46,7 +46,7 @@ class Profile extends Component {
     })
 
     // fetch data
-    axios.get(`http://localhost:5000/properties/display?role=${decoded.role}&email=${decoded.email}`).then( (data) => {
+    axios.get(`/properties/display?role=${decoded.role}&email=${decoded.email}`).then( (data) => {
       this.setState({
         data: data.data.data
         
@@ -61,7 +61,7 @@ class Profile extends Component {
          const decoded = jwt_decode(token);
              axios
                .get(
-                 `http://localhost:5000/properties/display?role=${decoded.role}&email=${decoded.email}`
+                 `/properties/display?role=${decoded.role}&email=${decoded.email}`
                )
                .then(data => {
                  this.setState({

@@ -48,7 +48,7 @@ class Chat extends Component {
 
     axios
       .get(
-        `http://localhost:5000/properties/display?role=${decoded.role}&email=${decoded.email}`
+        `/properties/display?role=${decoded.role}&email=${decoded.email}`
       )
       .then(response => {
         if (response.data.data[0].landlord_contact === decoded.email) {
@@ -60,7 +60,7 @@ class Chat extends Component {
 
       axios
         .get(
-          `http://localhost:5000/chat/history?role=${decoded.role}&email=${decoded.email}`
+          `/chat/history?role=${decoded.role}&email=${decoded.email}`
         )
         .then(res => {
           console.log(res.data.data);
@@ -76,7 +76,7 @@ class Chat extends Component {
      const decoded = jwt_decode(token);
           axios
             .get(
-              `http://localhost:5000/chat/history?role=${decoded.role}&email=${decoded.email}`
+              `/chat/history?role=${decoded.role}&email=${decoded.email}`
             )
             .then(res => {
               console.log(res.data.data);

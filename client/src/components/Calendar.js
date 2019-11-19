@@ -226,7 +226,7 @@ class Calendar extends Component {
             role: decoded.role
         })
 
-        axios.get(`http://localhost:5000/reminders/reminderList?role=${decoded.role}&email=${decoded.email}`).then((res) => {
+        axios.get(`/reminders/reminderList?role=${decoded.role}&email=${decoded.email}`).then((res) => {
             console.log(res.data.data);
             this.setState({data: res.data.data})
         })
@@ -239,7 +239,7 @@ class Calendar extends Component {
          const decoded = jwt_decode(token);
              axios
                .get(
-                 `http://localhost:5000/reminders/reminderList?role=${decoded.role}&email=${decoded.email}`
+                 `/reminders/reminderList?role=${decoded.role}&email=${decoded.email}`
                )
                .then(res => {
                  console.log(res.data.data);
