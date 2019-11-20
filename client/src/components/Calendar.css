@@ -115,7 +115,7 @@ tr {
     position: absolute;
     left: 70%;
     transform: translate(-50%, 25%);
-    width: 60vh;
+    width: 50vh;
     display: grid;
     justify-content: center;
     align-items: center;

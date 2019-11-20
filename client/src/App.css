@@ -7,7 +7,7 @@ body {
     font-family: 'Ubuntu', sans-serif;
 }
 
-/* NAVBAR */
+/* NAVBAR */ 
 #logo {
   color: #eee;
   position: absolute;
@@ -132,7 +132,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
   font-family: 'Ubuntu', sans-serif;
   position: absolute;
   left: 50%;
-  transform: translate(-50%, 25%);
+  transform: translate(-50%, 5%);
   width: 50vh;
   display: grid;
   justify-content: center;
@@ -281,7 +281,7 @@ label,
   font-family: 'Ubuntu', sans-serif;
   position: relative;
   left: 50%;
-  transform: translate(-50%, 575%);
+  transform: translate(-50%, 625%);
   width: 100vh;
   display: grid;
   justify-content: left;
