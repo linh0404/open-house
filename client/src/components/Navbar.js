@@ -11,11 +11,11 @@ class Landing extends Component {
 
   render() {
     const loginRegLink = (
-      <ul className="navbar-nav">
+      <ul className="navbar-nav" id="logged">
         <li className="nav-item">
-          <Link to="/login" className="nav-link">
+          {/* <Link to="/login" className="nav-link">
             Login
-          </Link>
+          </Link> */}
         </li>
         <li className="nav-item">
           <Link to="/register" className="nav-link">
@@ -26,11 +26,11 @@ class Landing extends Component {
     )
 
     const userLink = (
-      <ul className="navbar-nav">
+      <ul className="navbar-nav" id="logged">
         <li className="nav-item">
-          <Link to="/profile" className="nav-link">
+          {/* <Link to="/profile" className="nav-link">
             User
-          </Link>
+          </Link> */}
         </li>
         <li className="nav-item">
           <a href="" onClick={this.logOut.bind(this)} className="nav-link">

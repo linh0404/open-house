@@ -102,47 +102,52 @@ class Profile extends Component {
       <div className="portfolio-container">
         <PRCarousel />
         <table className="table portfolio-table">
-          <tbody>
+          <tbody className="portfolio-user">
             <tr>
               <td>Logged in as:</td>
-              <td>{this.state.first_name} {this.state.last_name}</td>
+              <td>
+                {this.state.first_name} {this.state.last_name}
+              </td>
             </tr>
           </tbody>
 
           <tbody>
-            <tr>
-              <td>Property Address</td>
+            <tr className="table-header">
               <td>Landlord's Name</td>
               <td>Landlord's Email</td>
               <td>Tenant's Name</td>
               <td>Tenant's Email</td>
+              <td className="portfolio-address">Property Address</td>
             </tr>
 
-            {this.state.data.map((contact) => {
+            {this.state.data.map(contact => {
               return (
-              <tr>
-                <td>{contact.address}</td>
-                <td>{contact.landlord_name}</td>
-                <td>{contact.landlord_contact}</td>
-                <td>{contact.tenant_name}</td>
-                <td>{contact.tenant_contact}</td>
-              </tr>)
+                <tr className="table-content">
+                  <td>{contact.landlord_name}</td>
+                  <td>{contact.landlord_contact}</td>
+                  <td>{contact.tenant_name}</td>
+                  <td>{contact.tenant_contact}</td>
+                  <td className="portfolio-address">{contact.address}</td>
+                </tr>
+              );
             })}
-            
-
           </tbody>
+          {this.state.isShowing ? (
+            <div onClick={this.closeModalHandler} className="back-drop"></div>
+          ) : null}
+
+          <button className="open-modal-btn" onClick={this.openModalHandler}>
+            Add Property
+          </button>
         </table>
-        
-        <div>
-          {this.state.isShowing ? <div onClick={this.closeModalHandler} className="back-drop"></div> : null}
 
-          <button className="open-modal-btn" onClick={this.openModalHandler}>Add Property</button>
-
+        <div className="add-modal">
           <Modal
             className="modal"
             show={this.state.isShowing}
-            close={this.closeModalHandler}>
-            <div className="login-container">
+            close={this.closeModalHandler}
+          >
+            <div className="modal-container">
               <div className="row">
                 <div>
                   <form noValidate onSubmit={this.onSubmit}>
@@ -159,7 +164,7 @@ class Profile extends Component {
                       />
                     </div>
                     <div className="form-group">
-                      <label htmlFor="name">Landlord Contact Details</label>
+                      <label htmlFor="name">Landlord Email</label>
                       <input
                         type="tel"
                         className="form-control"
@@ -182,7 +187,7 @@ class Profile extends Component {
                       />
                     </div>
                     <div className="form-group">
-                      <label htmlFor="name">Tenant's Contact Details</label>
+                      <label htmlFor="name">Tenant's Email</label>
                       <input
                         type="tel"
                         className="form-control"
@@ -204,8 +209,19 @@ class Profile extends Component {
                         onChange={this.onChange}
                       />
                     </div>
-                    <button type="submit" className="btn-continue" onClick={this.closeModalHandler}>Submit</button>
-                    <button className="btn-cancel" onClick={this.closeModalHandler}>Close</button>
+                    <button
+                      type="submit"
+                      className="btn-continue"
+                      onClick={this.closeModalHandler}
+                    >
+                      Submit
+                    </button>
+                    <button
+                      className="btn-cancel"
+                      onClick={this.closeModalHandler}
+                    >
+                      Close
+                    </button>
                   </form>
                 </div>
               </div>
@@ -213,7 +229,7 @@ class Profile extends Component {
           </Modal>
         </div>
       </div>
-    )
+    );
   }
 }
 

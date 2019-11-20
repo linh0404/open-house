@@ -319,92 +319,111 @@ class Calendar extends Component {
 
 
         return (
-            <div>
-                <div class="row">
-                    <div class="col-8">
-                        <div className="calendar-container" style={this.style}>
-                            <table className="calendar">
-                                <thead>
-                                    <tr className="calendar-header">
-                                        <td colSpan="5" className="month">
-                                            <this.MonthNav />
-                                            {" "}
-                                            <this.YearNav />
-                                        </td>
-                                        <td colSpan="2" className="nav-month">
-                                            <i className="prev fa fa-fw fa-chevron-left"
-                                                onClick={(e) => { this.prevMonth() }}>
-                                            </i>
-                                            <i className="prev fa fa-fw fa-chevron-right"
-                                                onClick={(e) => { this.nextMonth() }}>
-                                            </i>
-                                        </td>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        {weekdays}
-                                    </tr>
-                                    {trElems}
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="col-s4 reminders-container">
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <td>Reminder</td>
-                                    <td>Frequency</td>
-                                    <td>Next Due</td>
-                                </tr>
+          <div>
+            <div class="row">
+              <div class="col-8">
+                <div className="calendar-container" style={this.style}>
+                  <table className="calendar">
+                    <thead>
+                      <tr className="calendar-header">
+                        <td colSpan="5" className="month">
+                          <this.MonthNav /> <this.YearNav />
+                        </td>
+                        <td colSpan="2" className="nav-month">
+                          {/* <i
+                            className="prev fa fa-fw fa-chevron-left"
+                            onClick={e => {
+                              this.prevMonth();
+                            }}
+                          ></i>
+                          <i
+                            className="prev fa fa-fw fa-chevron-right"
+                            onClick={e => {
+                              this.nextMonth();
+                            }}
+                          ></i> */}
+                        </td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>{weekdays}</tr>
+                      {trElems}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="col-s4 reminders-container">
+                <table>
+                  <tbody>
+                    <tr className="table-header">
+                      <td>Reminder</td>
+                      <td>Frequency</td>
+                      <td>Next Due</td>
+                    </tr>
 
-                                {this.state.data.map((remind) => {
-                                    return (
-                                        <tr>
-                                            <td>{remind.reminder}</td>
-                                            <td>{remind.frequency}</td>
-                                            <td>{remind.start_date}</td>
-                                        </tr>)
-                                })}
+                    {this.state.data.map(remind => {
+                      return (
+                        <tr className="table-content">
+                          <td>{remind.reminder}</td>
+                          <td>{remind.frequency}</td>
+                          <td>{remind.start_date}</td>
+                        </tr>
+                      );
+                    })}
 
-                                <div>
-                                    {this.state.isShowing ? <div onClick={this.closeModalHandler} className="back-drop"></div> : null}
+                    <div>
+                      {this.state.isShowing ? (
+                        <div
+                          onClick={this.closeModalHandler}
+                          className="back-drop"
+                        ></div>
+                      ) : null}
 
-                                    <button className="open-modal-btn" onClick={this.openModalHandler}>Add Reminder</button>
+                      <button
+                        className="open-modal-btn"
+                        onClick={this.openModalHandler}
+                      >
+                        Add Reminder
+                      </button>
 
-                                    <Modal
-                                        className="modal"
-                                        show={this.state.isShowing}
-                                        close={this.closeModalHandler}>
-                                        <div className="login-container">
-                                            <div className="row">
-                                                <div>
-                                                    <form noValidate onSubmit={this.onSubmit}>
-                                                        <h1 className="h3 mb-3 font-weight-normal">Add Reminders Here</h1>
-                                                        <div className="form-group">
-                                                            <label htmlFor="name">Add Reminder</label>
-                                                            <input
-                                                                type="text"
-                                                                className="form-control"
-                                                                name="reminder"
-                                                                placeholder="Enter a new Event here"
-                                                                value={this.state.reminder}
-                                                                onChange={this.onChange}
-                                                            />
-                                                        </div>
-                                                        <div className="form-group">
-                                                            <label htmlFor="name">Add Frequency</label>
-                                                            <select className="form-control"
-                                                                    placeholder="Enter frequency here"
-                                                                    name="frequency"
-                                                                    value={this.state.frequency}
-                                                                    onChange={this.onChange}>
-                                                                <option value="30">Monthly</option>
-                                                                <option value="14">Fortnightly</option>
-                                                                <option value="7">Weekly</option>
-                                                            </select>
-                                                            {/* <input
+                      <Modal
+                        className="modal"
+                        show={this.state.isShowing}
+                        close={this.closeModalHandler}
+                      >
+                        <div className="login-container">
+                          <div className="row">
+                            <div>
+                              <form noValidate onSubmit={this.onSubmit}>
+                                <h1 className="h3 mb-3 font-weight-normal">
+                                  Add Reminders Here
+                                </h1>
+                                <div className="form-group">
+                                  <label htmlFor="name">Add Reminder</label>
+                                  <input
+                                    type="text"
+                                    className="form-control"
+                                    name="reminder"
+                                    placeholder="Enter a new Event here"
+                                    value={this.state.reminder}
+                                    onChange={this.onChange}
+                                  />
+                                </div>
+                                <div className="form-group">
+                                  <label htmlFor="name">Add Frequency</label>
+                                  <select
+                                    className="form-control"
+                                    placeholder="Enter frequency here"
+                                    name="frequency"
+                                    value={this.state.frequency}
+                                    onChange={this.onChange}
+                                  >
+                                    <option value="Monthly">Monthly</option>
+                                    <option value="Fortnightly">Fortnightly</option>
+                                    <option value="Weekly">Weekly</option>
+                                    <option value="Once">Once</option>
+                                  </select>
+                                  {/* <input
                                                                 type="text"
                                                                 className="form-control"
                                                                 name="frequency"
@@ -412,53 +431,64 @@ class Calendar extends Component {
                                                                 value={this.state.frequency}
                                                                 onChange={this.onChange}                                                            
                                                                 /> */}
-                                                        </div>
-                                                        <div className="form-group">
-                                                            <label htmlFor="name">Start Date</label>
-                                                            <input
-                                                                type="date"
-                                                                className="form-control"
-                                                                name="start_date"
-                                                                placeholder="Enter your start date here"
-                                                                value={this.state.start_date}
-                                                                onChange={this.onChange}
-                                                            />
-                                                        </div>
-                                                        <div className="form-group">
-                                                            <label htmlFor="name">End Date</label>
-                                                            <input
-                                                                type="date"
-                                                                className="form-control"
-                                                                name="end_date"
-                                                                placeholder="Enter your end date here"
-                                                                value={this.state.end_date}
-                                                                onChange={this.onChange}
-                                                            />
-                                                        </div>
-                                                        <div className="form-group">
-                                                            <label htmlFor="name">Address</label>
-                                                            <input
-                                                                type="text"
-                                                                className="form-control"
-                                                                name="address"
-                                                                placeholder="Enter your Property's Address"
-                                                                value={this.state.address}
-                                                                onChange={this.onChange}
-                                                            />
-                                                        </div>
-                                                        <button type="submit" className="btn-continue" onClick={this.closeModalHandler}>Submit</button>
-                                                        <button className="btn-cancel" onClick={this.closeModalHandler}>Close</button>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </Modal>
                                 </div>
-                            </tbody>
-                        </table>
+                                <div className="form-group">
+                                  <label htmlFor="name">Start Date</label>
+                                  <input
+                                    type="date"
+                                    className="form-control"
+                                    name="start_date"
+                                    placeholder="Enter your start date here"
+                                    value={this.state.start_date}
+                                    onChange={this.onChange}
+                                  />
+                                </div>
+                                <div className="form-group">
+                                  <label htmlFor="name">End Date</label>
+                                  <input
+                                    type="date"
+                                    className="form-control"
+                                    name="end_date"
+                                    placeholder="Enter your end date here"
+                                    value={this.state.end_date}
+                                    onChange={this.onChange}
+                                  />
+                                </div>
+                                <div className="form-group">
+                                  <label htmlFor="name">Address</label>
+                                  <input
+                                    type="text"
+                                    className="form-control"
+                                    name="address"
+                                    placeholder="Enter your Property's Address"
+                                    value={this.state.address}
+                                    onChange={this.onChange}
+                                  />
+                                </div>
+                                <button
+                                  type="submit"
+                                  className="btn-continue"
+                                  onClick={this.closeModalHandler}
+                                >
+                                  Submit
+                                </button>
+                                <button
+                                  className="btn-cancel"
+                                  onClick={this.closeModalHandler}
+                                >
+                                  Close
+                                </button>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      </Modal>
                     </div>
-                </div>
+                  </tbody>
+                </table>
+              </div>
             </div>
+          </div>
         );
     }
 }

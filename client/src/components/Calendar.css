@@ -3,7 +3,7 @@
 .calendar-header,
 td,
 tr {
-    padding: 10px 8px 20px 30px;
+    padding: 20px 8px 20px 40px;
     margin-top: 10px;
     color: white;
 }
@@ -113,9 +113,9 @@ tr {
 .reminders-container {
     font-family: 'Ubuntu', sans-serif;
     position: absolute;
-    left: 80%;
+    left: 70%;
     transform: translate(-50%, 25%);
-    width: 50vh;
+    width: 60vh;
     display: grid;
     justify-content: center;
     align-items: center;
@@ -124,3 +124,9 @@ tr {
     padding: 10px 20px;
     border-radius: 10px;
 }
+
+.table-content td {
+    font-size: 11px;
+    padding: 10px;
+}
+

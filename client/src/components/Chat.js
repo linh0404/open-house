@@ -91,14 +91,14 @@ class Chat extends Component {
       <div>
         <div className="chat-container">
           <tbody>
-            <tr>
+            {/* <tr>
               <td>Sender</td>
               <td>Message</td>
-            </tr>
+            </tr> */}
             {this.state.data.map(messages => {
               return (
-                <tr>
-                  <td>{messages.sender}</td>
+                <tr className="chatbox">
+                  <td className="message_sender">{messages.sender}</td>
                   <td>{messages.message}</td>
                 </tr>
               );
@@ -117,7 +117,7 @@ class Chat extends Component {
                 onChange={this.onChange}
               />
             </div>
-            <button type="submit" className="btn-continue">
+            <button type="submit" className="btn-continue message-btn">
               Submit
             </button>
           </form>

@@ -35,7 +35,9 @@ body {
   font-weight: bold;
   font-size: 1.35em;
   display: inline;
+  margin: 5px;
 }
+
 
 /*BURGER MENU */
 /* Position and sizing of burger button */
@@ -137,7 +139,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
   align-items: center;
   background: rgba(21, 21, 21, 0.8);
   box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.25);
-  padding: 10px 20px;
+  padding: 10px 20px 30px 20px;
   border-radius: 10px;
 }
 
@@ -169,7 +171,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
   padding: 10px 20px;
   border: none;
   border-radius: 25px;
-  width: 150px;
+  width: 120px;
   margin: 0 auto;
 }
 
@@ -193,6 +195,7 @@ label,
   box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.25);
   padding: 30px 30px;
   border-radius: 10px;
+  justify-content: center;
 }
 
 .portfolio-container table {
@@ -200,40 +203,7 @@ label,
 }
 
 /* MODAL */
-.modal-wrapper {
-    background: white;
-    border: 1px solid #d0cccc;
-    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(0,0,0,0.17);
-    margin: 50px auto 0;
-    transition: all .8s;
-    width: 60%;
-}
 
-.modal-header {
-    background: #263238;
-    height: 40px;
-    line-height: 40px;
-    padding: 5px 20px;
-    text-align: right;
-}
-
-.modal-header h3 {
-    color: white;
-    float: left;
-    margin: 0;
-    padding: 0;
-}
-
-.modal-body {
-    padding: 10px 15px;
-    text-align: center;
-}
-
-.modal-footer {
-    background: #263238;
-    height: 35px;
-    padding: 15px;
-}
 
 .close-modal-btn {
     color: white;
@@ -248,7 +218,7 @@ label,
 }
 
 .btn-cancel, .btn-continue {
-    background: coral;
+    background: #33406B;
     border: none;
     color: white;
     cursor: pointer;
@@ -279,14 +249,25 @@ label,
     margin: 15px;
     padding: 10px;
     font-weight: bold;
+    background: #33406B;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    outline: none;
+    padding: 10px;
+    width: 120px;
+    position: relative;
+    left: 85%;
 }
 
 .chat-container {
   font-family: 'Ubuntu', sans-serif;
   position: absolute;
   left: 50%;
-  transform: translate(-50%, 25%);
+  transform: translate(-50%, 0%);
   width: 100vh;
+  height: 60vh;
   display: grid;
   justify-content: left;
   align-items: left;
@@ -300,8 +281,107 @@ label,
   font-family: 'Ubuntu', sans-serif;
   position: relative;
   left: 50%;
-  transform: translate(-50%, 175%);
+  transform: translate(-50%, 575%);
   width: 100vh;
+  display: grid;
+  justify-content: left;
+  align-items: left;
+  background: rgba(21, 21, 21, 0.9);
+  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.25);
+  padding: 10px 10px;
+  border-radius: 10px;
+}
+
+.message-container input {
+  display: flex;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  width: 670px;
+  color: white;
+}
+
+.portfolio-user {
+  padding-bottom: 20px;
+}
+
+.table {
+  font-size: 1.1em;
+}
+
+.table-header td {
+  font-weight: bold;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.modal-container {
+  font-family: 'Ubuntu', sans-serif;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 80%);
+  width: 50vh;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  background: rgba(21, 21, 21, 0.8);
+  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.25);
+  padding: 10px 20px 30px 20px;
+  border-radius: 10px;
+}
+
+.modal-container input {
+  background: rgba(255, 255, 255, 0.3);
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  width: 250px;
+  color: white;
+}
+
+.modal-container input::placeholder {
+  color: white;
+}
+
+.modal-container button {
+  margin: 10px;
+  color: white;
+  background: #33406B;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  width: 120px;
+  margin: 0 auto;
+}
+
+.chatbox td {
+  padding: 5px;
+}
+
+.message_sender {
+  color: #1277FC;
+  font-size: 11px;
+}
+
+.message-btn {
+    display: inline;
+    font-weight: bold;
+    background: #33406B;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    outline: none;
+    padding: 5px; 
+    width: 100px;
+}
+
+.contact-container {
+  font-family: 'Ubuntu', sans-serif;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  width: 100vh;
+  font-size: 14px;
   display: grid;
   justify-content: left;
   align-items: left;
@@ -311,10 +391,6 @@ label,
   border-radius: 10px;
 }
 
-.message-container input {
-  display: block;
-  margin-top: 5px;
-  margin-bottom: 20px;
-  width: 670px;
-  color: white;
+.contact-container td {
+  padding: 20px;
 }
