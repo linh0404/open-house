@@ -5,6 +5,7 @@ Create an account, log in and add properties to your portfolio, create reminders
 
 Everything is stored in a SQL database so that you can easily access information if ever necessary. You can
 
+
 # Getting Started
 Make sure you install all the dependencies you need for the project including Node.JS and mySQL. You
 Once you have these installed, navigate to the directory and enter the following commands into the terminal. 
@@ -22,6 +23,7 @@ cd client
 npm install
 npm start
 ```
+
 
 # How It Works
 Using it is super simple. 
@@ -50,6 +52,7 @@ Chat with your tenant/landlord:
 - mySQL/Sequelize
 - Bootstrap
 - Express 
+
 
 # Contributors
 This project was completed as the final project for Monash University's Coding Bootcamp. Big thank you to our Instructor and TA's, Fareez, Marc and Tim for all their help throughout the course. 
