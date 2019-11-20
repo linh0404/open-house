@@ -78,17 +78,14 @@ body {
 
 .menu-item p {
   color: #eee;
-  padding: 20px 0 0 18px;
+  padding: 20px 10px 10px 18px;
   font-family: 'Ubuntu', sans-serif;
   font-size: 1.15em;
 }
 
-.menu-item i {
-  margin: 10px;
-}
-
 .menu-item {
   border: none;
+  text-decoration: none;
 }
 
 /*
