@@ -28,16 +28,16 @@ npm start
 # How It Works
 Using it is super simple. 
 
-Create an account:
+- Create an account:
 ![GitHub Logo](/client/public/images/screenshot1.png)
 
-Add properties to your portfolio:
+- Add properties to your portfolio:
 ![GitHub Logo](/client/public/images/screenshot2.png)
 
-Create reminders:
+- Create reminders:
 ![GitHub Logo](/client/public/images/screenshot3.png)
 
-Chat with your tenant/landlord:
+- Chat with your tenant/landlord:
 ![GitHub Logo](/client/public/images/screenshot4.png)
 
 
