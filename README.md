@@ -29,15 +29,19 @@ npm start
 Using it is super simple. 
 
 - Create an account:
+
 ![GitHub Logo](/client/public/images/screenshot1.png)
 
 - Add properties to your portfolio:
+
 ![GitHub Logo](/client/public/images/screenshot2.png)
 
 - Create reminders:
+
 ![GitHub Logo](/client/public/images/screenshot3.png)
 
 - Chat with your tenant/landlord:
+
 ![GitHub Logo](/client/public/images/screenshot4.png)
 
 
