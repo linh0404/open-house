@@ -394,3 +394,30 @@ label,
 .contact-container td {
   padding: 20px;
 }
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #151515;
+  color: #eee;
+  text-align: center;
+  padding: 20px;
+  font-weight: bold;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 16px;
+}
+
+.fab {
+  padding: 10px;
+}
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+.container {
+  padding-bottom: 2.5rem;
+}
+

@@ -13,13 +13,14 @@ import Profile from './components/Profile';
 import Calendar from './components/Calendar';
 import Chat from './components/Chat';
 import Contact from './components/Contact';
+import Footer from './components/Footer';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
       <Router>
-        <div className="App">
+        <div className="App" id="page-container">
           <Navbar />
           <Route exact path="/" component={Login} />
           <div className="container">
@@ -30,6 +31,7 @@ class App extends Component {
             <Route exact path="/chat" component={Chat}/>
             <Route exact path="/contact" component={Contact}/>
           </div>
+          {/* <Footer /> */}
         </div>
       </Router>
     )
