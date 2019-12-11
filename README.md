@@ -55,8 +55,6 @@ Using it is super simple.
 
 
 # Contributors
-This project was completed as the final project for Monash University's Coding Bootcamp. Big thank you to our Instructor and TA's, Fareez, Marc and Tim for all their help throughout the course. 
-
-Elvin 
+This project was completed as the final project for Monash University's Coding Bootcamp. Big thank you to our Instructor and TA's, Fareez, Marc, Tim and Elvin for all their help throughout the course. 
 
 
