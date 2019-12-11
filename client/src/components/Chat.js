@@ -86,39 +86,33 @@ class Chat extends Component {
   }
 
   render() {
-    console.log(this.state.data);
     return (
-      <div>
-        <div className="chat-container">
-          <tbody>
-            {/* <tr>
-              <td>Sender</td>
-              <td>Message</td>
-            </tr> */}
-            {this.state.data.map(messages => {
-              return (
-                <tr className="chatbox">
-                  <td className="message_sender">{messages.sender}</td>
-                  <td>{messages.message}</td>
-                </tr>
-              );
-            })}
-          </tbody>
+      <div className="chat_container">
+        <div className="chat_messages">
+          {this.state.data.map(messages => {
+            return (
+              <div className="chat_message">
+                <span className="chat_message_sender">{messages.sender}</span>
+                <span className="chat_message_message">{messages.message}</span>
+              </div>
+            );
+          })}
         </div>
-        <div className="message-container">
-          <form noValidate onSubmit={this.onSubmit}>
-            <div className="form-group">
+        <div className="chat_form_wrapper">
+          <form className="chat_form" noValidate onSubmit={this.onSubmit}>
+            <div className="chat_form_inputWrapper">
               <input
                 type="text"
                 className="form-control"
+                autoComplete="off"
                 name="message"
                 placeholder="Enter your message"
                 value={this.state.message}
                 onChange={this.onChange}
               />
             </div>
-            <button type="submit" className="btn-continue message-btn">
-              Submit
+            <button type="submit" className="chat_form_button">
+              Chat
             </button>
           </form>
         </div>
