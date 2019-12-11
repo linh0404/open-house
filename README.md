@@ -3,7 +3,13 @@ Welcome to Open House - a website that allows landlords and tenants to manage th
 
 Create an account, log in and add properties to your portfolio, create reminders and message your tenant or landlord. Create
 
-Everything is stored in a SQL database so that you can easily access information if ever necessary. You can
+Everything is stored in a SQL database so that you can easily access information if ever necessary.
+
+# Deployed Project Link
+
+https://open-house0404.herokuapp.com/
+
+Click on the link above to see it in action.
 
 # Getting Started
 Make sure you install all the dependencies you need for the project including Node.JS and mySQL. You
