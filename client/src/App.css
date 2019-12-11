@@ -88,6 +88,7 @@ body {
 .menu-item {
   border: none;
   text-decoration: none;
+  outline: none !important;
 }
 
 /*
@@ -292,12 +293,28 @@ label,
   border-radius: 10px;
 }
 
-.message-container input {
+.message-container form {
   display: flex;
+  width: 880px;
+  justify-content: space-between;
+}
+
+.message-container .form-group {
+  flex: 1 0 auto;
+}
+
+.message-container input {
+  /* display: flex; */
   margin-top: 5px;
   margin-bottom: 20px;
-  width: 670px;
+  /* width: 670px; */
   color: white;
+}
+
+
+.message-container button {
+  height: 32px;
+  margin-left: 20px;
 }
 
 .portfolio-user {
